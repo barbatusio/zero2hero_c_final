@@ -10,7 +10,12 @@
 #include "parse.h"
 
 void list_employees(struct dbheader_t *dbhdr, struct employee_t *employees) {
-
+    int i = 0;
+    for (; i < dbhdr->count; i++) {
+        printf("Name:\t\t%s\n", employees[i].name);
+        printf("Address:\t%s\n", employees[i].address);
+        printf("Hours:\t\t%d\n\n", employees[i].hours);
+    }
 }
 
 int add_employee(struct dbheader_t *dbhdr, struct employee_t *employees, char *addstring) {
