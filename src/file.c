@@ -23,7 +23,7 @@ int create_db_file(char *filename) {
         return STATUS_ERROR;
     }
 
-    return STATUS_GOOD;
+    return STATUS_SUCCESS;
 }
 
 int open_db_file(char *filename) {
