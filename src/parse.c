@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -8,6 +9,11 @@
 
 #include "common.h"
 #include "parse.h"
+
+char *ltrim(char *string) {
+    while(isspace(*string)) string++;
+    return string;
+}
 
 void list_employees(struct dbheader_t *dbhdr, struct employee_t *employees) {
     int i = 0;
@@ -21,9 +27,9 @@ void list_employees(struct dbheader_t *dbhdr, struct employee_t *employees) {
 int add_employee(struct dbheader_t *dbhdr, struct employee_t *employees, char *addstring) {
     printf("%s\n", addstring);
 
-    char *name = strtok(addstring, ",");
+    char *name = ltrim(strtok(addstring, ","));
 
-    char *addr = strtok(NULL, ",");
+    char *addr = ltrim(strtok(NULL, ","));
 
     char *hours = strtok(NULL, ",");
 
