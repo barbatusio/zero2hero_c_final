@@ -22,6 +22,8 @@ int create_db_file(char *filename) {
         perror("open");
         return STATUS_ERROR;
     }
+
+    return STATUS_GOOD;
 }
 
 int open_db_file(char *filename) {
